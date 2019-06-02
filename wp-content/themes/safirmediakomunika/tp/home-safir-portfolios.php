@@ -2,23 +2,32 @@
 	<section class="funfacts-section">
 		<div class="container">
 			<div class="row clearfix">
-				
+
 				<!-- Title Column -->
+				<?php
+					$title = esc_attr (get_field('portfolio_title', 'option') );
+					if( !empty( $title ) ):
+				?>
 				<div class="title-column col-lg-4 col-md-12 col-sm-12">
 					<div class="inner-column">
-						<h3>You will be satisfied to see our <span>funfacts</span></h3>
-						<div class="text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print.</div>
+						<h3><?= $title; ?></h3>
+						<?php
+							$subtite = esc_attr (get_field('portfolio_subtitle', 'option') );
+							if( !empty( $subtite ) ):
+						?>
+						<div class="text"><?= $subtite; ?></div>
+					<?php endif; ?>
 					</div>
 				</div>
-				
+			<?php endif; ?>
 				<!-- Counter Column -->
 				<div class="counter-column col-lg-8 col-md-12 col-sm-12">
 					<div class="inner-column">
-						
+
 						<div class="fact-counter style-two">
-							
+
 							<div class="row clearfix">
-							
+
 								<!--Column-->
 								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
 									<div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -28,7 +37,7 @@
 										</div>
 									</div>
 								</div>
-						
+
 								<!--Column-->
 								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
 									<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
@@ -38,7 +47,7 @@
 										</div>
 									</div>
 								</div>
-						
+
 								<!--Column-->
 								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
 									<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
@@ -48,14 +57,14 @@
 										</div>
 									</div>
 								</div>
-						
+
 							</div>
-							
+
 						</div>
-						
+
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -65,7 +74,7 @@
 	<section class="gallery-section">
 		<div class="outer-container">
 			<div class="four-item-carousel owl-carousel owl-theme">
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -82,7 +91,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -99,7 +108,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -116,7 +125,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -133,7 +142,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -150,7 +159,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -167,7 +176,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -184,7 +193,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Project Block Two -->
 				<div class="project-block-two">
 					<div class="inner-box">
@@ -201,8 +210,8 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
-	<!-- End Gallery Section -->	
+	<!-- End Gallery Section -->
