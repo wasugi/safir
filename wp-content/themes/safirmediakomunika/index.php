@@ -2,22 +2,22 @@
 <div id="primary" class="content-area mt-90">
 	<main id="main" class="site-main" role="main">
 		<?= webane_load_breadcrumbs(); ?>
-<?php if ( is_home() && ! is_front_page() ) : ?>
-	<div class="judul-arsip pt-20">
-		<?php
-			$title = esc_attr (get_field('blog_title', 'option') );
-			if( !empty( $title ) ):
-		?>
-		<h2><?= $title; ?></h2>
-		<?php
-			endif;
-			$subtite = esc_attr (get_field('blog_subtitle', 'option') );
-			if( !empty( $subtite ) ):
-		?>
-		<span><?= $subtite; ?></span>
-	<?php endif; ?>
-	</div>
-<?php endif; ?>
+			<?php if ( is_home() && ! is_front_page() ) : ?>
+				<div class="judul-arsip pt-20">
+					<?php
+						$title = esc_attr (get_field('blog_title', 'option') );
+						if( !empty( $title ) ):
+					?>
+					<h2><?= $title; ?></h2>
+					<?php
+						endif;
+						$subtite = esc_attr (get_field('blog_subtitle', 'option') );
+						if( !empty( $subtite ) ):
+					?>
+					<span><?= $subtite; ?></span>
+				<?php endif; ?>
+				</div>
+			<?php endif; ?>
 
 		<div class="container"><div class="row">
 
