@@ -1,5 +1,5 @@
-jQuery(document).ready(function($) { 
-    
+jQuery(document).ready(function($) {
+
 	if ($('#main-nav-bar .navigation-box .sub-menu').length) {
         var subMenu = $('#main-nav-bar .sub-menu');
         subMenu.parent('li').children('a').append(function() {
@@ -58,6 +58,82 @@ jQuery(document).ready(function($) {
             }
         }
     })
+    // Four Item Carousel
+  	if ($('.four-item-carousel').length) {
+  		$('.four-item-carousel').owlCarousel({
+  			loop:true,
+  			margin:15,
+  			nav:true,
+  			smartSpeed: 500,
+  			autoplay: 5000,
+  			navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+  			responsive:{
+  				0:{
+  					items:1
+  				},
+  				600:{
+  					items:2
+  				},
+  				800:{
+  					items:2
+  				},
+  				1024:{
+  					items:3
+  				},
+  				1200:{
+  					items:3
+  				},
+  				1400:{
+  					items:4
+  				}
+  			}
+  		});
+  	}
+
+		var brandCarOne = $('.content-clients');
+    if (brandCarOne.length) {
+        brandCarOne.each(function() {
+            var getID = $(this).attr('id');
+            var brandCarOne = $("#" + getID);
+            brandCarOne.owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: false,
+                navText: [
+                    '<i class="fa fa-angle-left"></i>',
+                    '<i class="fa fa-angle-right"></i>'
+                ],
+                dots: false,
+                autoWidth: false,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    568: {
+                        items: 2
+                    },
+                    767: {
+                        items: 3
+                    },
+                    991: {
+                        items: 3
+                    },
+                    1199: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 4
+                    }
+                }
+            });
+        });
+    }
 	/* ----------------------------------------------------------- */
 	/*  Popup
 	/* ----------------------------------------------------------- */
@@ -79,8 +155,8 @@ jQuery(document).ready(function($) {
         });
     }
 
-    /*======================== 
-        featured post  
+    /*========================
+        featured post
    ==========================*/
     if ($('#featured-slider').length > 0) {
         $('#featured-slider').owlCarousel({
@@ -98,8 +174,8 @@ jQuery(document).ready(function($) {
             responsiveClass: true
         });
     }
-	   /*======================== 
-        featured slider 2 
+	   /*========================
+        featured slider 2
    ==========================*/
     if ($('#featured-slider-2').length > 0) {
         $('#featured-slider-2').owlCarousel({
@@ -113,8 +189,8 @@ jQuery(document).ready(function($) {
 
         });
     }
-        /*======================== 
-        most populer  
+        /*========================
+        most populer
    ==========================*/
     if ($('.most-populers').length > 0) {
         $('.most-populers').owlCarousel({
@@ -144,8 +220,8 @@ jQuery(document).ready(function($) {
             }
         });
     }
-	/*======================== 
-        Gallery 
+	/*========================
+        Gallery
    ==========================*/
     if ($('#hot-topics-slider').length > 0) {
         $('#hot-topics-slider').owlCarousel({
@@ -182,17 +258,17 @@ jQuery(document).ready(function($) {
          }, 800);
          return false;
     });
-    
+
     $('#back-to-top').tooltip('hide');
    /* jQuery MeanMenu */
     $('#mobile-menu-active').meanmenu({
         meanScreenWidth: "991",
         meanMenuContainer: ".mobile-menu-area .mobile-menu",
     });
-    
+
     $('.commrnt-toggle a').on('click', function(e) {
         e.preventDefault();
         $('.blog-comment-content-wrap').slideToggle(1000);
-    });  
-    
+    });
+
 });

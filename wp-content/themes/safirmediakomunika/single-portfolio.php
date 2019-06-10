@@ -11,7 +11,7 @@
 						if ( have_posts() ) :
 							while ( have_posts() ) : the_post();
 
-								get_template_part( 'tp/single', get_post_format() );
+								get_template_part( 'tp/single', 'portfolio');
 
 							endwhile;
 

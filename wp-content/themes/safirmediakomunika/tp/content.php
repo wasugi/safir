@@ -9,7 +9,7 @@
 
 	<div class="post-content">
 		<?php the_title( sprintf( '<h3 class="post-title"><a href="%s" rel="bookmark" aria-label="Selengkapnya">', esc_url( get_permalink() ) ), '</a></h3>' );
-			 echo webane_content_meta_date();
+			 echo webane_load_times_ago();
 		?>
 	</div>
 

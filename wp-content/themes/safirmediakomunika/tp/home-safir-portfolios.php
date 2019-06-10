@@ -23,44 +23,31 @@
 				<!-- Counter Column -->
 				<div class="counter-column col-lg-8 col-md-12 col-sm-12">
 					<div class="inner-column">
-
+						<?php if( have_rows('portfolio_funfact', 'option') ): ?>
 						<div class="fact-counter style-two">
 
 							<div class="row clearfix">
+								<?php while( have_rows('portfolio_funfact', 'option') ): the_row();
 
+									$fakta = get_sub_field('fact_title');
+									$data = get_sub_field('fact_value');
+								?>
 								<!--Column-->
 								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
 									<div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 										<div class="count-outer count-box">
-											<h6 class="counter-title">Completed projects</h6>
-											<span class="count-text" data-speed="3000" data-stop="501">0</span>
+											<h6 class="counter-title"><?= $fakta; ?></h6>
+											<span class="count-text" data-speed="3000" data-stop="501"><?= $data; ?></span>
 										</div>
 									</div>
 								</div>
+								<?php endwhile; ?>
 
-								<!--Column-->
-								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
-									<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-										<div class="count-outer count-box">
-											<h6 class="counter-title">Expert team</h6>
-											<span class="count-text" data-speed="2000" data-stop="45">0</span>
-										</div>
-									</div>
-								</div>
-
-								<!--Column-->
-								<div class="column counter-column col-lg-4 col-md-6 col-sm-12">
-									<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-										<div class="count-outer count-box">
-											<h6 class="counter-title">Happy clients</h6>
-											<span class="count-text" data-speed="2500" data-stop="304">0</span>
-										</div>
-									</div>
-								</div>
 
 							</div>
 
 						</div>
+					<?php endif; ?>
 
 					</div>
 				</div>
@@ -71,145 +58,16 @@
 	<!-- End Funfacts Section -->
 
 	<!-- Gallery Section -->
-	<section class="gallery-section">
+	<section class="gallery-section pb-100">
 		<div class="outer-container">
 			<div class="four-item-carousel owl-carousel owl-theme">
 
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/25.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php $the_query = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => 8 ));
+						while ( $the_query->have_posts() ) : $the_query->the_post();
 
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/26.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+						get_template_part('tp/content', 'portfolio');
 
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/27.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/28.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/25.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/26.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/27.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project Block Two -->
-				<div class="project-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/gallery/28.jpg" alt="" />
-							<!--Overlay Two-->
-							<div class="overlay-two">
-								<div class="overlay-two-inner">
-									<h4><a href="portfolio-single.html">Graphics design</a></h4>
-									<div class="text">Lorem ipsum, or lipsum as it is someone times known, is dummy.</div>
-									<a href="portfolio-single.html" class="arrow-box fa fa-angle-right"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				endwhile; wp_reset_postdata(); ?>
 
 			</div>
 		</div>

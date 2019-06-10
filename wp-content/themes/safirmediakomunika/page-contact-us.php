@@ -1,14 +1,14 @@
-<?php 
+<?php
 	/*
 	* Template Name: Contact Us
 	*/
 get_header (); ?>
 
-<div id="primary" class="content-area mb-50 single-post-wrapper">
+<div id="primary" class="content-area mb-50 single-post-wrapper mt-100">
 	<main id="main" class="site-main" role="main">
-		<?php echo fungsi_breadcrumbs_webane();?>
+		<?php echo webane_load_breadcrumbs();?>
 		<div class="google-map mb-50">
-						<?php 
+						<?php
 							$location = get_field('gmap', 'option');
 							if( !empty($location) ):
 						?>
@@ -18,29 +18,29 @@ get_header (); ?>
 							</div>
 							</div>
 							<?php endif; ?>
-		</div>		
+		</div>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-9">
-					
-					
-					<?php	if ( have_posts() ) : 
+
+
+					<?php	if ( have_posts() ) :
 							while ( have_posts() ) : the_post();
-								
+
 								get_template_part( 'tp/content', 'page');
-								
+
 							endwhile;
-												
+
 							else :
-										
+
 								get_template_part( 'tp/content', 'none' );
 
 						endif;
-					?>	
-					
+					?>
+
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 

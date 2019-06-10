@@ -10,7 +10,7 @@
 					?>
 				</span>
 			</div>
-			<?php the_title( sprintf( '<h2 class="post-title">', esc_url( get_permalink() ) ), '</h2>' ); 
+			<?php the_title( sprintf( '<h2 class="post-title">', esc_url( get_permalink() ) ), '</h2>' );
 				echo webane_single_post_meta();
 				?>
 		</div>
@@ -19,17 +19,17 @@
 		<div class="col-lg-9">
 			<div class="entry-content">
 				<div class="share-this">
-					<?= fungsi_share_webane(); ?>
+					<?= webane_share_this_post(); ?>
 				</div>
-				
+
 				<?php the_content(); ?>
-				
+
 				<div class="post-navigation clearfix">
-					<?= webane_prev_next_post_single(); ?>
+					<?= webane_prev_next_post(); ?>
 				</div>
-	
+
 				<div class="comments-form">
-					<?= fungsi_komen_facebook_webane(); ?>
+					<?= webane_load_facebook_comment(); ?>
 				</div>
 					<?php panggil_konten_terkait(); ?>
 			</div>

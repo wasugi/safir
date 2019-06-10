@@ -14,7 +14,7 @@
 			get_template_part('tp/home', 'safir-services');
 			get_template_part('tp/home', 'safir-about');
 			get_template_part('tp/home', 'safir-portfolios');
-			get_template_part('tp/home', 'lazis-kabar');
+			get_template_part('tp/home', 'safir-client');
 		?>
 	</article>
 	</main>

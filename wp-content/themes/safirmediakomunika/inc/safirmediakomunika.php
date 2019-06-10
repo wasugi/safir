@@ -3,7 +3,6 @@
 function webane_load_css_and_js(){
 	wp_enqueue_style( 'bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
 	wp_enqueue_style( 'Google-Fonts', 'https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' );
-	wp_enqueue_style( 'FontAwesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/fontawesome.min.css');
 	wp_enqueue_style( 'FontAne', get_template_directory_uri() . '/css/FontAne.css');
 	wp_enqueue_style( 'ionicons', 'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.0/css/ionicons.min.css');
 	wp_enqueue_style( 'magnific-popup','https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css' );
@@ -11,7 +10,7 @@ function webane_load_css_and_js(){
 	wp_enqueue_style( 'plugins-css', get_template_directory_uri() . '/css/plugins.css' );
 	wp_enqueue_style( 'safirmediakomunika', get_template_directory_uri() . '/css/safirmediakomunika.css');
 	wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css');
-	
+
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery' ,'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
 	wp_enqueue_script( 'jquery' );
@@ -24,7 +23,7 @@ function webane_load_css_and_js(){
 	wp_enqueue_script( 'plugins-js', get_template_directory_uri() . '/js/plugins.js' );
 	wp_enqueue_script( 'map', get_template_directory_uri() . '/js/gmap.js', array('jquery'), true );
 	wp_enqueue_script( 'googlemap', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBddpckvgjXaGHbHLkaPaCVQh7A0j44lj0', array('jquery'), true );
-	
+
 	wp_enqueue_script( 'lazis', get_template_directory_uri() . '/js/main.js');
 
 }
@@ -34,7 +33,7 @@ add_action( 'wp_enqueue_scripts', 'webane_load_css_and_js' );
 	1. Google
 */
 function webane_google_map_init() {
-	
+
 	acf_update_setting('google_api_key', 'AIzaSyBddpckvgjXaGHbHLkaPaCVQh7A0j44lj0');
 }
 
@@ -44,7 +43,7 @@ add_action('acf/init', 'webane_google_map_init');
 /*
 	2. Share and Comments and social media
 */
-function webane_load_social_media() { 
+function webane_load_social_media() {
  global $webane;
  $whatsapp = esc_attr (get_field('no_whatsapp', 'option') );
  $facebook = esc_attr (get_field('id_facebook', 'option') );
@@ -386,36 +385,36 @@ add_filter( 'get_the_archive_title', 'webane_load_archive_titles' );
 //box author
 
 function webane_author_info_box( $content ) {
- 
+
 	global $post;
- 
+
 	if ( is_single() && isset( $post->post_author ) ) {
-	 
+
 	$display_name = get_the_author_meta( 'display_name', $post->post_author );
 	if ( empty( $display_name ) )
 	$display_name = get_the_author_meta( 'nickname', $post->post_author );
 	$user_description = get_the_author_meta( 'user_description', $post->post_author );
 	$user_website = get_the_author_meta('url', $post->post_author);
 	$user_posts = get_author_posts_url( get_the_author_meta( 'ID' , $post->post_author));
-	  
+
 	if ( ! empty( $display_name ) )
-	 
+
 	$author_details = '<p class="author_name">About ' . $display_name . '</p>';
-	 
+
 	if ( ! empty( $user_description ) )
-	 
+
 	$author_details .= '<p class="author_details">' . get_avatar( get_the_author_meta('user_email') , 90 ) . nl2br( $user_description ). '</p>';
-	 
-	$author_details .= '<p class="author_links"><a href="'. $user_posts .'">View all posts by ' . $display_name . '</a>';  
-	 
+
+	$author_details .= '<p class="author_links"><a href="'. $user_posts .'">View all posts by ' . $display_name . '</a>';
+
 	if ( ! empty( $user_website ) ) {
-	 
+
 	$author_details .= ' | <a href="' . $user_website .'" target="_blank" rel="nofollow">Website</a></p>';
-	 
-	} else { 
+
+	} else {
 	$author_details .= '</p>';
 	}
- 
+
 $content = $content . '<footer class="author_bio_section" >' . $author_details . '</footer>';
 }
 return $content;
@@ -432,9 +431,9 @@ function webane_prev_next_post()
 	$next_post = get_next_post();
 	$next_thumbImg = wp_get_attachment_image_src( get_post_thumbnail_id($next_post->ID), 'thumbnail');
 	$next_img = $thumbImg['0'];
-    $next_title = esc_html( get_the_title($next_post->ID) ); 
-    $prev_title = esc_html( get_the_title($prev_post->ID) ); 
-	
+    $next_title = esc_html( get_the_title($next_post->ID) );
+    $prev_title = esc_html( get_the_title($prev_post->ID) );
+
 	if (!empty( $prev_post )){
 	$content .= '<div class="post-previous float-left">
 					<a href="'. $prev_post->guid .'">';
@@ -443,7 +442,7 @@ function webane_prev_next_post()
 					</a>
 				</div>';
 	}
-	
+
 	if (!empty( $next_post )) {
 	$content .= '<div class="post-next float-right">
 					<a href="'. get_permalink( $next_post->ID ) .'">';
@@ -459,7 +458,7 @@ function times_ago($seconds = 1, $time=false){
 	$time = "";
 	$d = $seconds;
 	//$seconds = (int)strtotime($seconds);
-		if ( ! is_numeric($seconds)) $seconds = 1;	 
+		if ( ! is_numeric($seconds)) $seconds = 1;
 		if ( ! is_numeric($time)) $time = current_time('timestamp', $gmt = 0);
 		//if ( ! is_numeric($time)) $time = time()+25200;
 		if ($time <= $seconds) $seconds = 1;
@@ -500,9 +499,9 @@ function webane_single_post_meta()
 {
 	$display_name = get_the_author_meta( 'display_name', $post->post_author );
 	if ( empty( $display_name ) )
-	$display_name = get_the_author_meta( 'nickname', $post->post_author );  
+	$display_name = get_the_author_meta( 'nickname', $post->post_author );
 	$waktu = get_the_date('j F Y');
-	
+
     return '
 	<ul class="post-meta-info">
 		<li class="author">'. get_avatar( get_the_author_meta('user_email') , 90 ) . nl2br( $display_name ). '</li>
@@ -515,7 +514,7 @@ function webane_single_post_meta()
 function webane_load_times_ago()
 {
 	$timestamp = esc_attr( get_the_time( 'U' ) );
-	
+
     return '
 	<div class="post-meta-info">
 		<i class="ane-clock"></i>
@@ -544,7 +543,7 @@ function webane_tract_post_views ($post_id) {
     if ( !is_single() ) return;
     if ( empty ( $post_id) ) {
         global $post;
-        $post_id = $post->ID;    
+        $post_id = $post->ID;
     }
     webane_count_post_views($post_id);
 }
@@ -584,7 +583,7 @@ function webane_single_post_image()
 	$imgurl = $thumbImg['0'];
 	$imgcaption = get_post(get_post_thumbnail_id())->post_content;
 	$posturl .= esc_html( get_permalink($post->ID) );
-	$posttitle .= esc_html( get_the_title($post->ID) ); 
+	$posttitle .= esc_html( get_the_title($post->ID) );
     }
 	return '
 	<div class="post-media post-featured-image">

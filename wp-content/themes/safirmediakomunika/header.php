@@ -16,7 +16,7 @@
         <div class="container clearfix">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="logo-box clearfix">
-				<?php 
+				<?php
 					$logoimg = get_theme_mod( 'logo', get_template_directory_uri().'/img/logo.png' );
 					if ( has_custom_logo() ) {
 					the_custom_logo();
@@ -25,7 +25,7 @@
 						echo '<a class="navbar-brand" href="' .get_home_url(). '" rel="home"><img src="' .$logoimg. '" title="' .get_bloginfo( 'name' ).'" alt="' .get_bloginfo( 'name' ).'"></a>';
 					}
 				?>
-                
+
                 <button class="menu-toggler" data-target="#main-nav-bar">
                     <i class="ane-menu"></i>
                 </button>
@@ -44,12 +44,16 @@
 					'depth'          => 4,
 					)
 					);
+
+
+					$link = get_field('link_top', 'option');
+					if( !empty( $link ) ):
 				?>
-				
+
             <div class="right-side-box">
-                <a href="login.html" class="login-btn">Log In</a>
+                <a href="<?php echo $link['url']; ?>" class="login-btn"><?php echo $link['title']; ?></a>
             </div>
-            <!-- /.right-side-box -->
+					<?php endif; ?>
         </div>
         <!-- /.container -->
     </nav>
