@@ -54,7 +54,7 @@
 
 					?>
 				</div>
-				<div class="gallery-img mb-30">
+				<div class="gallery-img">
 					<div class="row">
 					<?php $counter = -1; foreach( $images as $image ):
 					$counter++ ?>

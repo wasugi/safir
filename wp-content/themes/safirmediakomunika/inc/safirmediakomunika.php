@@ -52,7 +52,7 @@ function webane_load_social_media() {
  $youtube = esc_attr (get_field('link_youtube_chanel', 'option') );
 ?>
 <div class="social-links">
-	<ul>
+<ul>
 		<?php if( !empty( $whatsapp ) ): ?>
 			<li class="whatsapp"><a href="https://wa.me/62<?php echo $whatsapp; ?>" class="whatsapp"  data-tooltip="Contact WhatsApp" target="_blank"><i class="ane-whatsapp"></i></a></li>
 		<?php endif; if( !empty( $facebook ) ): ?>

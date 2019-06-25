@@ -14,7 +14,7 @@
 						$subtite = esc_attr (get_field('blog_subtitle', 'option') );
 						if( !empty( $subtite ) ):
 					?>
-					<span><?= $subtite; ?></span>
+		<?></span>></?></span>>an><?= $subtite; ?></span>
 				<?php endif; ?>
 				</div>
 			<?php endif; ?>
